@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TechSprint 2026 · IEEE Student Branch</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0e2233;--paper:#f5f8fb;--blue:#00629b;--amber:#ffb81c;--mist:#dce6ef;--white:#fff}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+h1,h2,h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.05}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+nav b{font-family:'Bricolage Grotesque';font-size:1.1rem}
+nav ul{display:flex;gap:24px;list-style:none;padding:0}
+nav a{text-decoration:none;font-weight:500}
+nav a:hover{color:var(--blue)}
+.hero{background:var(--blue);color:var(--white);padding-bottom:72px}
+.hero nav a:hover{color:var(--amber)}
+.hero h1{font-size:clamp(3rem,10vw,7.5rem);font-weight:800;letter-spacing:-.03em;margin-top:56px}
+.hero p.lede{max-width:46ch;font-size:1.15rem;margin-top:20px;opacity:.92}
+.clock{display:flex;gap:12px;margin:40px 0 32px;flex-wrap:wrap}
+.clock div{background:var(--ink);padding:14px 18px;min-width:92px;border-radius:6px}
+.clock strong{display:block;font-family:'Bricolage Grotesque';font-size:2.4rem;font-weight:700;color:var(--amber);font-variant-numeric:tabular-nums}
+.clock span{font-size:.85rem;opacity:.8}
+.btn{display:inline-block;background:var(--amber);color:var(--ink);font-weight:500;padding:14px 26px;border-radius:6px;text-decoration:none;border:0;font:inherit;font-weight:500;cursor:pointer}
+.btn:hover{background:#ffc94d}
+section{padding:80px 0}
+h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:28px;font-weight:700}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.facts{display:grid;gap:12px}
+.facts div{background:var(--white);border-left:5px solid var(--blue);padding:14px 18px}
+.facts b{font-family:'Bricolage Grotesque';font-size:1.5rem;display:block}
+.sched{background:var(--white)}
+.sched ol{list-style:none;padding:0;border-top:2px solid var(--ink)}
+.sched li{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--mist)}
+.sched time{font-family:'Bricolage Grotesque';font-weight:700;color:var(--blue)}
+.sched li p{opacity:.75;font-size:.95rem}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.person{background:var(--white);padding:20px}
+.person i{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--ink);color:var(--amber);font:700 1.3rem 'Bricolage Grotesque';font-style:normal;margin-bottom:14px}
+.person p{opacity:.75;font-size:.95rem}
+.reg{background:var(--ink);color:var(--white)}
+.reg form{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:680px}
+.reg label{display:grid;gap:6px;font-size:.95rem}
+.reg .full{grid-column:1/-1}
+.reg input,.reg select{padding:12px;border-radius:6px;border:2px solid transparent;font:inherit;background:var(--white);color:var(--ink)}
+.reg input:invalid:not(:placeholder-shown){border-color:#ff6b6b}
+#msg{margin-top:20px;font-weight:500;color:var(--amber);min-height:1.6em}
+footer{padding:32px 0;text-align:center;font-size:.9rem;opacity:.7}
+@media(max-width:720px){.about,.reg form{grid-template-columns:1fr}.sched li{grid-template-columns:90px 1fr}nav ul{gap:14px;font-size:.9rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <nav><b>IEEE Student Branch</b>
+      <ul><li><a href="#about">About</a></li><li><a href="#schedule">Schedule</a></li><li><a href="#speakers">Speakers</a></li><li><a href="#register">Register</a></li></ul>
+    </nav>
+    <h1>TechSprint<br>2026</h1>
+    <p class="lede">A 24-hour hackathon with workshops and talks. Build something real with teammates from every branch.</p>
+    <div class="clock" role="timer" aria-label="Time until the event starts">
+      <div><strong id="d">00</strong><span>days</span></div>
+      <div><strong id="h">00</strong><span>hours</span></div>
+      <div><strong id="m">00</strong><span>minutes</span></div>
+      <div><strong id="s">00</strong><span>seconds</span></div>
+    </div>
+    <a class="btn" href="#register">Register your team</a>
+  </div>
+</header>
+
+<main>
+<section id="about"><div class="wrap about">
+  <div><h2>Build, learn, ship.</h2>
+  <p>TechSprint brings students together for one day of problem solving. Pick a track, form a team of up to four, and present a working prototype to a panel of IEEE members and industry mentors.</p></div>
+  <div class="facts">
+    <div><b>24 hours</b>Non-stop building</div>
+    <div><b>3 tracks</b>Web, IoT, and AI</div>
+    <div><b>Free entry</b>Food and swag included</div>
+  </div>
+</div></section>
+
+<section id="schedule" class="sched"><div class="wrap">
+  <h2>Schedule</h2>
+  <ol>
+    <li><time>Sat 09:00</time><div><b>Check-in and opening</b><p>Badge pickup, team formation, track briefing</p></div></li>
+    <li><time>Sat 11:00</time><div><b>Hacking begins</b><p>Mentors available at the help desk all day</p></div></li>
+    <li><time>Sat 15:00</time><div><b>Workshop: deploy in 10 minutes</b><p>Ship a project to the web with free hosting</p></div></li>
+    <li><time>Sun 09:00</time><div><b>Submissions close</b><p>Upload your repo and a demo link</p></div></li>
+    <li><time>Sun 11:00</time><div><b>Demos and awards</b><p>Five-minute pitches, winners announced at 14:00</p></div></li>
+  </ol>
+</div></section>
+
+<section id="speakers"><div class="wrap">
+  <h2>Speakers and mentors</h2>
+  <div class="people">
+    <div class="person"><i>AR</i><h3>Dr. A. Rao</h3><p>Embedded systems, keynote</p></div>
+    <div class="person"><i>MS</i><h3>Meera Shah</h3><p>Full-stack engineer, deployment workshop</p></div>
+    <div class="person"><i>KN</i><h3>Karan Nair</h3><p>ML researcher, AI track mentor</p></div>
+  </div>
+</div></section>
+
+<section id="register" class="reg"><div class="wrap">
+  <h2>Register</h2>
+  <form id="f" novalidate>
+    <label>Full name<input name="name" required placeholder="Your name"></label>
+    <label>Email<input name="email" type="email" required placeholder="you@college.edu"></label>
+    <label>College<input name="college" required placeholder="College name"></label>
+    <label>Track<select name="track"><option>Web</option><option>IoT</option><option>AI</option></select></label>
+    <div class="full"><button class="btn" type="submit">Complete registration</button></div>
+  </form>
+  <p id="msg" role="status"></p>
+</div></section>
+</main>
+<footer>TechSprint 2026 · IEEE Student Branch</footer>
+
+<script>
+const target=new Date();target.setDate(target.getDate()+30);target.setHours(9,0,0,0); // replace with the real event date
+const $=id=>document.getElementById(id),pad=n=>String(n).padStart(2,'0');
+function tick(){let t=Math.max(0,target-Date.now());
+  $('d').textContent=pad(Math.floor(t/864e5));$('h').textContent=pad(Math.floor(t/36e5)%24);
+  $('m').textContent=pad(Math.floor(t/6e4)%60);$('s').textContent=pad(Math.floor(t/1e3)%60);}
+tick();setInterval(tick,1000);
+$('f').addEventListener('submit',e=>{e.preventDefault();const f=e.target;
+  if(!f.checkValidity()){f.reportValidity();return;}
+  const d=Object.fromEntries(new FormData(f));
+  try{const l=JSON.parse(localStorage.getItem('ts_regs')||'[]');l.push({...d,at:Date.now()});localStorage.setItem('ts_regs',JSON.stringify(l));}catch(_){}
+  $('msg').textContent='You are registered, '+d.name.split(' ')[0]+'. Check '+d.email+' for details.';f.reset();});
+</script>
+</body>
+</html>
